@@ -1,0 +1,10 @@
+@import '../../base.scss';
+
+@media (max-width: $breakpoint-small){
+    #shortsScreen{
+        // margin-left: 1.75rem;
+        margin-left: 0.75rem;
+        width: 100%;
+    }
+    
+}

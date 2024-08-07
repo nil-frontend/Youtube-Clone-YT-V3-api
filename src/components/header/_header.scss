@@ -1,0 +1,249 @@
+@import "../../_base.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem 1rem 2rem;
+
+  background-color: $black-primary;
+
+  // max-height: 10vh;
+  // min-height: 10vh;
+  max-height: 70px;
+  min-height: 70px;
+  width: 100%;
+
+  overflow: hidden;
+
+
+  position: fixed;
+  top: 0;
+
+  z-index: 999;
+  &__menu {
+    padding: 0.5rem;
+    display: none;
+  }
+  &__menu:hover {
+    // margin: 0rem 0rem 0rem 0.9rem;
+    
+    width: 2.61rem;
+    border-radius: 999px;
+    padding: 0.5rem;
+    cursor: pointer;
+    background: #222222;
+    border-radius: 100%;
+  }
+  &__logo{
+    width: 9rem;
+    height: 9rem;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+  }
+
+  &__small{
+    display: none;
+  }
+  
+  form {
+    flex: 0.6;
+    display: flex;
+    padding: 0.1rem;
+    margin: 0 -4rem 0 9rem;
+    border-radius: 5rem;
+    border: 1.2px solid ;
+    // border: 1.2px solid #222222;
+    // background-color: $black-secondary;
+    // background-color: $black-primary;
+    background-color: #121212;
+
+    input {
+      width: 100%;
+      border: none;
+      font-weight: 500;
+      background: transparent;
+      // padding: 0.42rem;
+      padding-top: 0.40rem;
+      padding-bottom: 0.38rem;
+      padding-left: 0.42rem;
+      padding-right: 0.42rem;
+      color: $text-color;
+      padding-left: 1.2rem;
+      // background-color: red;
+      border-top-left-radius: 5rem;
+      border-bottom-left-radius: 5rem;
+      border-right: 1px solid #d3d3d3;
+
+      &:focus {
+        outline: none;
+        border-color : #1C62B9;
+        border: 1.2px solid #1C62B9;
+        margin: -0.15rem 0rem -0.15rem -0.16rem;
+        border-right: 2px solid #1C62B9;
+        padding-top: 0.45rem;
+        padding-bottom: 0.456rem;
+        padding-left: 1.3rem;
+        padding-right: 0.42rem;
+        
+      }
+    }
+
+    button {
+      padding: 0 1.25rem;
+      color: $text-color;
+      // background: transparent;
+      background: #222222;
+      border: none;
+      // border-left: 1px solid ;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+
+      &:focus {
+        border: none;
+      }
+    }
+  }
+
+  &__mic {
+    margin: 0rem 6rem 0rem 0rem;
+    
+    width: 2.61rem;
+    border-radius: 999px;
+    padding: 0.5rem;
+    cursor: pointer;
+    background: #222222;
+  }
+  
+  &__mic:hover {
+    // background: #272727;
+    background: #3D3D3D;
+  }
+
+
+  &__icons {
+    flex: 0.15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__iov{
+      // margin: 0rem 6rem 0rem 0rem;
+      width: 2.70rem;
+      border-radius: 999px;
+      padding: 0.4rem 0.5rem ;
+      cursor: pointer;
+    }
+    &__iob{
+      width: 2.45rem;
+      border-radius: 999px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    &__iob:hover, &__iov:hover {
+      background: #272727;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 2rem;
+      // width: 32px;
+      object-fit: contain;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    img:hover {
+      // box-sizing: border-box;
+      // border: 4px solid white;
+      box-shadow:0 0.2rem #272727 ;
+      
+    }
+  }
+}
+@media (max-width: 1200px){
+  #inp{
+    margin-left: 0rem;
+    // margin-right: 0rem;
+  }
+  #mic {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+}
+@media (max-width: $breakpoint-min-medium){
+  .header{
+    justify-content: space-around;
+    padding-left: 0;
+  }
+  #inp{
+    margin-left: 0rem;
+    // margin-right: 0rem;
+  }
+  #mic{
+    margin-right: 0rem;
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .header {
+    padding: 1rem;
+    padding-left: 2.05rem;
+    // padding-right: 0;
+    // justify-content: space-around;
+    justify-content: space-between;
+
+    form {
+      // flex: 1;
+      // margin-left: 0.5rem !important;
+      margin-right: -1rem;
+
+      button{
+      padding: 0 0.5rem;
+
+      }
+    }
+
+    &__menu{
+      margin-left: 0.9rem;
+      margin-left: 0;
+      
+    }
+    &__mic{
+      
+    margin: 0rem 2rem 0rem 0rem;
+    //last day refactor before deploying to CICD pipe li ne 2/8/2024
+    display: none;
+
+    }
+    // &__menu {
+    //   display: block;
+    // }
+    &__logo {
+      display: none;
+    }
+    &__small{
+      width: 2.45rem;
+    height: 9rem;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+    // margin-left: 2rem;
+    //last day refactor before deploying to CICD pipe li ne 2/8/2024
+    // display: none;
+    }
+
+    &__icons > *:not(img) {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 360px){
+  .header{
+    padding:1rem;
+  }
+  
+}

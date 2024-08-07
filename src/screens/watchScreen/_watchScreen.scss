@@ -1,0 +1,26 @@
+@import '../../base.scss';
+#row{
+    // margin-left: 14.5rem;
+    margin-left: 1rem;
+    margin-top: 88px;
+}
+.watchScreen_player{
+    // height: 31vw;
+    // height: 58vh;
+    height: 60vh;
+    background-color: #353946;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.infinite-scroll-component>span{
+    width: 100%;
+}
+
+@media (max-width: $breakpoint-small){
+    .watchScreen_player{
+        height: 53vw;
+    }
+}

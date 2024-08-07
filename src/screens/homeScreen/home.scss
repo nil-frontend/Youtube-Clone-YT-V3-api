@@ -1,0 +1,21 @@
+@import '../../base.scss';
+
+@media (max-width: $breakpoint-small){
+    #homeScreen{
+        margin-left: 1.75rem;
+        width: 100%;
+    }
+    
+}
+@media (max-width: 360px){
+    #homeScreen{
+        margin-left: 0.5rem;
+        // width: 100%;
+    }
+    
+}
+@media (max-width: 767px){
+    .infinite{
+        display:grid;
+    }
+}

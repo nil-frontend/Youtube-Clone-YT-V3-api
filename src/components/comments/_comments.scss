@@ -1,0 +1,53 @@
+.comments__form {
+    img {
+       width: 40px;
+       height: 40px;
+       object-fit: contain;
+    }
+    input {
+       background: transparent;
+       border: none;
+       border-bottom: 2px solid #353946;
+       color: #fff;
+       transition: 0.25s ease all;
+
+       line-height: 20px;
+       font-size: 14px;
+
+       margin-bottom: .25em;
+      //  font-size: 1.4rem;
+       line-height: 2rem;
+      //  font-weight: 400;
+       &:focus {
+          outline: none;
+          border-bottom: 2px solid #ffffff;
+       }
+    }
+ 
+    button {
+       background-color: #353946;
+       color: #fff;
+       letter-spacing: 0.5px;
+       border-radius: 99px;
+       padding: 1.5rem 0 1.5rem 0;
+       &:focus {
+          border: none;
+          outline: none;
+       }
+       &:hover{
+         background-color: #3EA6FF;
+         color: black;
+       }
+    }
+ }
+
+ .emoji svg{
+   margin-top: 0.85rem;
+   font-size: larger;
+ }
+ #emoji{
+   display: none;
+ }
+ .block{
+   display: block !important;
+ }

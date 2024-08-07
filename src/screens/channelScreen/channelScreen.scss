@@ -1,0 +1,131 @@
+@import '../../_base.scss';
+
+.channelHeader {
+   border-bottom: 1px solid $border-color;
+
+   &__left {
+      img {
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+      }
+   }
+   button {
+      text-transform: uppercase;
+      background-color: red;
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.4rem;
+      border: none;
+   }
+}
+
+@media (max-width: $breakpoint-medium) {
+   .channelHeader {
+      padding: 1.1rem 0;
+
+      img {
+         width: 50px;
+         height: 50px;
+      }
+      h3 {
+         font-size: 1rem;
+         margin: 0;
+      }
+   }
+}
+
+.banner{
+   padding-right: calc(50% - 642px);
+    padding-left: calc(50% - 642px);
+    padding-right: min(3rem);
+   //  aspect-ratio: 569 / 94;
+    aspect-ratio: 428 / 69;
+    display: flex;
+    align-items: center;
+}
+
+.banner div div img {
+   width: 100%;
+}
+.banner div div {
+   // aspect-ratio: 569 / 94;
+   aspect-ratio: 428 / 69;
+overflow: hidden;
+   width: 100%;
+   display: flex;
+    align-items: center;
+}
+.ico{
+   font-size: 1.7rem;
+   margin-right: 0.5rem;
+}
+
+#cross:hover{
+   background-color: #4d4d4d;
+}
+
+.subscribedBro{
+   background-color:#222222 !important;
+   color: #ECEDED;
+   font-weight: bold;
+
+}
+.subscribedBro:hover{
+   background-color: #3F3F3F !important;
+}
+
+#aboutSec{
+   transition: 0.5s cubic-bezier(0, 0.89, 0.33, 0.97);
+   height: 73vh;
+}
+.aboutBlock{
+   display: block;
+   --tw-scale-x: 1;
+   --tw-scale-y: 1;
+}
+
+.noBanner{
+   display: none !important;
+}
+
+
+
+@media (max-width: $breakpoint-medium){
+   #aboutSec{
+      margin-left: 10rem;
+      margin-right: 10rem;
+   }
+}
+@media (max-width: $breakpoint-min-medium){
+   #aboutSec{
+      margin-left: 2rem;
+      margin-right: 2rem;
+   }
+}
+
+
+@media (max-width: $breakpoint-small){
+   #channelScreen{
+      //  margin-left: 1.75rem;
+       margin-left: 0.25rem;
+       width: 100%;
+   }
+   .banner{
+      padding: 0 0.75rem 0 0.70rem;
+   }
+   #channelTop{
+      font-size: 70%;
+   }
+   #befImg {
+      height: 7rem;
+      width: 7rem;
+   }
+   #channelName{
+      font-size: 2rem;
+   }
+   #aboutSec{
+      margin-left: 0.4rem;
+      margin-right: 1rem;
+   }
+}

@@ -1,0 +1,38 @@
+@import "../../_base.scss";
+
+nav{
+    border-top: 1px solid $border-color;
+}
+
+nav div{
+    padding-top: 0.5rem;
+    padding-bottom: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // justify-items: center;
+    align-items: center;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+}
+nav div:hover{
+    background-color: #3D3D3D;
+    border-radius: 45%;
+}
+
+nav div img {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+}
+
+@media (max-width: $breakpoint-small) {
+    nav{
+        display: flex !important;
+    }
+}
+@media (max-width: 335px) {
+    nav{
+        font-size: small;
+    }
+}

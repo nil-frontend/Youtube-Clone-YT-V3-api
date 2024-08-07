@@ -1,0 +1,30 @@
+.comment {
+    font-size: 0.9rem;
+   //  border-bottom: 2px solid #353946;
+    img {
+       width: 40px;
+       height: 40px;
+    }
+    &__header {
+       color: #fff;
+    }
+    &__body {
+       overflow: hidden;
+    }
+ }
+
+ .comlikes{
+   font-size: 1.2rem;
+   // margin-right: 0.6rem;
+   padding: 0.6rem;
+   cursor: pointer;
+ }
+ .comlikes:hover{
+   background-color: #3F3F3F;
+   border-radius: 50%;
+ }
+
+//  this is for js code to like the comments.
+ .none{
+   display: none;
+ }
