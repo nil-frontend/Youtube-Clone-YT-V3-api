@@ -18,7 +18,7 @@ const {channelTitle} = video?.snippet || {};
 
 const keywords = [
   'All',
-  `from ${channelTitle}`,
+  `from ${channelTitle || "Channel"}`,
   'React js',
   'Angular js',
   'Crypto',

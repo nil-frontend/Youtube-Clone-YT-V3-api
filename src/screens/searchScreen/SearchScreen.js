@@ -34,7 +34,7 @@ const SearchScreen = () => {
       }
     </div>
   ):(
-    <div className="w-[calc(100%-240px)]  h-[calc(100%-53px)] pt-20  bg-yt-black ml-60">
+    <div id='searchScreen' className="w-[calc(100%-240px)]  h-[calc(100%-53px)] pt-20  bg-yt-black ml-60">
       <Skeleton width='98%' height='12rem' count={15}/>
     </div>
   )}

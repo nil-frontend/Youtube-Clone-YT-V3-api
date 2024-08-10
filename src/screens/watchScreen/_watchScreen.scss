@@ -19,8 +19,18 @@
     width: 100%;
 }
 
-@media (max-width: $breakpoint-small){
+@media (max-width: 992px){
     .watchScreen_player{
-        height: 53vw;
+        height: 50vw;
+        width: 96%;
     }
 }
+
+@media (max-width: $breakpoint-small){
+    #row{
+        // margin-left: 14.5rem;
+        margin-left: 0rem;
+        // margin-top: 88px;
+    }
+}
+

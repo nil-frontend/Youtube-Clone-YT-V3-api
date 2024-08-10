@@ -59,7 +59,7 @@ function SubscriptionsScreen() {
 
             Error: <br/>
             error code: {`${error.error.code}`} <br/>
-            user status: {`${error.error.status}`} <br/>
+            user status: {`${error.error.status || "You Reached Your Daily Request Limit ☹"}`} <br/>
             Reason: {`${error.error.errors[0].reason}`} <br/>
             error message: {`${error.error.errors[0].message}`} <br/>
 

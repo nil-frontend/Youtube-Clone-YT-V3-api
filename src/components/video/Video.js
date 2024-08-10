@@ -5,7 +5,7 @@ import moment from 'moment'
 import numeral from 'numeral'
 import {useNavigate} from 'react-router-dom'
 
-const Video = ({video}) => {
+const Video = ({video,channelScreen}) => {
 
   const {
     id,
@@ -68,10 +68,11 @@ const Video = ({video}) => {
   navigate(`/watch/${_videoId}`);
  };
 
+ const mr0 = channelScreen && ("mr-0")
   return (
 
     // <div className="pt-3 pl-2 pr-0 flex flex-wrap grid-cols-yt  gap-y-4">
-    <div className="flex flex-col min-w-[170px] mx-w-[270px] cursor-pointer mb-4 mr-8" onClick={handleVideoClick}>
+    <div id='videosSection' className={`flex flex-col min-w-[170px] mx-w-[270px] cursor-pointer mb-4 mr-8 ${mr0}`} onClick={handleVideoClick}>
       <div className="relative w-full">
         <img
           // src="https://i.ytimg.com/vi/di2w3aXPfVM/maxresdefault.jpg"

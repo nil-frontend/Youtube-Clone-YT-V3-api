@@ -52,7 +52,7 @@ const Sidebar = ({ sidebar, handleToggleSidebar,activeElement }) => {
           return (
             <div
               key={index}
-              className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointer hover:bg-yt-light-black my-1 ${
+              className={`h-10 flex justify-start px-3 rounded-xl items-center cursor-pointe?r hover:bg-yt-light-black my-1 ${
                 item.name === active ? "bg-yt-light-black" : "bg-yt-black"
               }`}
               onClick={() => setActive(item.name)}

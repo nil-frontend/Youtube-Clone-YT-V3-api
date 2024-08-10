@@ -74,8 +74,8 @@ const SearchVideos = ({video,SearchScreen,subScreen}) => {
      })
      setChannelIcon(items[0].snippet.thumbnails.default)
   }
-  get_channel_icon()
-}, [channelId])
+  if(isChannel) get_channel_icon()
+}, [channelId,isChannel])
 
 //for open the channel [page on clicking the channel name in search videos]
 function createCancellationToken() {

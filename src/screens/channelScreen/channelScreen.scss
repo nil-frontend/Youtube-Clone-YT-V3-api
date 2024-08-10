@@ -75,6 +75,17 @@ overflow: hidden;
    background-color: #3F3F3F !important;
 }
 
+#description::-webkit-scrollbar{
+   width: 4px;
+   background-color: $black-primary;
+   border-radius: 999px;
+}
+#description::-webkit-scrollbar-thumb{
+   width: 4px;
+   background-color: $black-secondary;
+   background-color: $border-color;
+   border-radius:999px;
+}
 #aboutSec{
    transition: 0.5s cubic-bezier(0, 0.89, 0.33, 0.97);
    height: 73vh;

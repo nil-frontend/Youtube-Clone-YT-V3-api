@@ -96,11 +96,16 @@
    font-size: 0.9rem;
 }
 
+
+
 @media (max-width: $breakpoint-small) {
    .videoMetaData {
       h5 {
          font-size: 1.1rem;
       }
+   }
+   .likebtn>div{
+      padding-right: 0 !important;
    }
 }
 

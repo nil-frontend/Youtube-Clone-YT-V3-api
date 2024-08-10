@@ -137,7 +137,7 @@ const ChannelScreen = () => {
               <RxCross1 size={25} className=" ml-auto"/>
             </div>
             </div>
-            <div className="h-4/5">
+            <div id="description" className="h-5/6 overflow-auto">
             <p className="mb-2">
               {/* "Hey Everyone! This is Ujjwal here! Welcome to "Techno Gamerz"
               YouTube Channel! I created this channel for android games i upload
@@ -189,7 +189,7 @@ const ChannelScreen = () => {
           <Row className="mt-4">
             {!loading
               ? videos?.map((video) => (
-                  <Col md={3} lg={3}>
+                  <Col md={4} lg={3}>
                     <Video video={video} channelScreen />
                   </Col>
                 ))

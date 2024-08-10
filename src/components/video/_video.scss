@@ -63,3 +63,13 @@
     }
   }
 }
+// @media(max-width: $breakpoint-small){
+//   #videosSection{
+//     margin-right: 2rem;
+//   }
+// }
+@media(max-width: 360px){
+  #videosSection{
+    margin-right: 0.25rem;
+  }
+}
