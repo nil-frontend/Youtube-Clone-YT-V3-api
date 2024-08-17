@@ -108,6 +108,14 @@
       padding-right: 0 !important;
    }
 }
+@media (max-width: 484px) {
+   #channelMetaData{
+      overflow-y: scroll;
+   }
+   .description {
+      margin-top: 0 !important;
+   }
+}
 
 .none {
    display: none;

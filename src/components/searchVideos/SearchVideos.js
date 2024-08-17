@@ -96,11 +96,13 @@ function createCancellationToken() {
   navigate(`/${_customUrl}/${_channelId}`)
   :
   navigate(`/channel/${_channelId}`)
+  window.scrollTo(0, 0);
  };
  const handelVideoChannelClick = ()=> {
   cancelToken.cancel()
   if(isVideo)
   navigate(`/channel/${channelId}`)
+  window.scrollTo(0, 0);
   // setTimeout(() => cancelToken.cancel(), 2000);
  };
  const cancelToken = createCancellationToken();

@@ -66,6 +66,7 @@ const Video = ({video,channelScreen}) => {
 }, [channelId])
  const handleVideoClick = ()=> {
   navigate(`/watch/${_videoId}`);
+  window.scrollTo(0, 0);
  };
 
  const mr0 = channelScreen && ("mr-0")

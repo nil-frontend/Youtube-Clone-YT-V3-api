@@ -51,3 +51,27 @@
  .block{
    display: block !important;
  }
+ #fastComment:hover{
+   background-color: #414041;
+ }
+ .comments{
+   transition: 0.3s ease;
+ }
+ .d-none{
+   display:none !important;
+ }
+
+
+ @media (max-width: 991px) {
+   .comCross{
+      display: block !important;
+   }
+   .comments{
+      height: 0;
+      overflow: hidden;
+      scale: 0.8;
+   }
+   #fastComment{
+      display: block;
+   }
+ }

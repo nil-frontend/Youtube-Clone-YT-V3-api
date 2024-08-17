@@ -256,7 +256,7 @@ export const getWatchPopularVideos = () => async (dispatch,getState) => {
          params: {
             part: 'snippet,contentDetails',
             playlistId: uploadPlaylistId,
-            maxResults: 30,
+            maxResults: 40,
          },
       })
 

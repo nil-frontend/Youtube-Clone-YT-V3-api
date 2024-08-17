@@ -13,7 +13,8 @@ import { MdMic } from "react-icons/md";
 import { BiVideoPlus } from "react-icons/bi";
 import { FaRegBell } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/actions/auth.action";
 // import LoginScreen from "../../screens/loginScreen/LoginScreen";
 
 const Header = ({ handleToggleSidebar }) => {
@@ -23,19 +24,29 @@ const Header = ({ handleToggleSidebar }) => {
   //   // document.getElementById("inp").style.borderColor = "#334075";
   //   // document.getElementById("inp").style.borderColor = "#163863";
   // }
-
+  const dispatch = useDispatch()
   const [input, setInput] = useState('')
 
   const navigate = useNavigate();
 
+  const {accessToken} = useSelector(state => state.auth)
+
   const handleSearch = (e)=> {
     e.preventDefault();
-
+    if(accessToken){
     navigate(`/search/${input}`)
+    window.scrollTo(0, 0);
+  }else{
+    dispatch(login());
+  }
   }
 
   const goHome = ()=> {
-    navigate("/")
+    if(accessToken){
+      navigate("/")
+    }else{
+      dispatch(login());
+    } 
   }
 
   const {photoURL} = useSelector(state => state.auth?.user) || {}

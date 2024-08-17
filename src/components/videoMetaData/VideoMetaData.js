@@ -75,16 +75,18 @@ const VideoMetaData = ({video, videId}) => {
 
   const goChannel = () =>{
     navigate(`/channel/${channelId}`)
+    window.scrollTo(0, 0);
   };
   const goCustomUrl = () =>{
     navigate(`/${customUrl}/${channelId}`)
+    window.scrollTo(0, 0);
   };
 
   return (
     <div className="videoMetaData py-2">
       <HelmetCustom title={title} description={description} />
       <div className="videoMetaData__top">
-        <h2 className="text-yt-white font-semibold mt-3 mb-1 text-lg">
+        <h2 className="text-yt-white font-semibold mt-3 mb-1 text-lg line-clamp-2">
           {title}
         </h2>
         {/* <div className="d-flex justify-content-between align-item-center py-1">
@@ -105,7 +107,7 @@ const VideoMetaData = ({video, videId}) => {
         </div> */}
       </div>
 {/* / */}
-      <div className="flex mt-2">
+      <div id="channelMetaData" className="flex mt-2">
         <div className="flex items-center w-full">
           {/* <div> */}
           <img

@@ -10,13 +10,13 @@ import {
 } from "react-icons/ri";
 import { useRef } from "react";
 
-const Comment = ({ comment }) => {
+const Comment = ({ comment,noLikeBtn }) => {
      const {
         authorDisplayName,
         authorProfileImageUrl,
         publishedAt,
         textDisplay,
-     } = comment
+     } = comment || {}
 
   const nonlikeRef = useRef(null);
   const likeRef = useRef(null);
@@ -44,6 +44,9 @@ const Comment = ({ comment }) => {
     }
   };
 
+  //when it is the single comment shown for mobile devices the comment will be in 1 line comment
+  const lineOne = noLikeBtn && ("line-clamp-1");
+
   return (
     <div className="py-2 comment d-flex">
       <img
@@ -55,8 +58,8 @@ const Comment = ({ comment }) => {
         <p className="mb-1 comment__header">
           {authorDisplayName} • {moment(publishedAt).fromNow()}                       {/* commenter name & time */}
         </p>
-        <p className="mb-0">{textDisplay}</p>                                         {/* the comment text */}
-
+        <p className={`mb-0 ${lineOne}`}>{textDisplay}</p>                                         {/* the comment text */}
+      {!noLikeBtn && (
         <div className=" d-flex ">
           <span className="comlikes" onClick={like}>
             <span className="" ref={nonlikeRef}>
@@ -75,6 +78,7 @@ const Comment = ({ comment }) => {
             </span>
           </span>
         </div>
+      )}
       </div>
     </div>
   );

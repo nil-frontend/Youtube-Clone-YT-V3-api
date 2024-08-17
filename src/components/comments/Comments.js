@@ -8,6 +8,7 @@ import { FaRegFaceLaughBeam } from "react-icons/fa6";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addComment, getCommentsOfVideoById } from "../../redux/actions/comments.action";
+import { RxCross1 } from "react-icons/rx";
 
 const Comments = ({ videoId, totalComments }) => {
 
@@ -56,7 +57,43 @@ const Comments = ({ videoId, totalComments }) => {
 
   const {photoURL} = useSelector(state => state.auth?.user)
 
+  // const latestComment = useSelector(state=> state.commentList?.comments[0]?.snippet?.topLevelComment?.snippet)
+
+  const commentsSec = document.querySelector(".comments")
+  const fastComment = document.querySelector("#fastComment")
+  const showComments = () => {
+    commentsSec.style.height="auto";
+    commentsSec.style.scale="1";
+    fastComment.classList.add("d-none")
+  };
+  const hideComments = () => {
+    commentsSec.style.height="0";
+    // commentsSec.style.scale="0.9";
+    fastComment.classList.remove("d-none")
+  };
+
   return (
+    <>
+    <div id="fastComment" className="px-3 py-2 pl-4 rounded-2xl bg-yt-light-black none" onClick={showComments}>
+      <div className="flex flex-row items-center">
+        <p className="text-base font-bold text-yt-white mr-1">Comments </p>
+        <p>{` ${totalComments}`}</p>
+      </div>
+      <div>
+        {totalComments !== "0"? (
+          <>
+        {comments?(
+          <Comment comment={comments[0]?.snippet?.topLevelComment?.snippet} noLikeBtn/>
+          ):(
+            <h1>Loading...</h1>
+          )}
+          </>
+          ):(
+            <h1>Add a Comment...</h1>
+            )}
+      </div>
+    </div>
+    
     <div className="comments">
       <div className=" mb--6 flex flex-row items-center text-yt-white">
         <p className=" mr-8 block text-xl font-bold my-3">{totalComments} comments</p>
@@ -65,6 +102,7 @@ const Comments = ({ videoId, totalComments }) => {
           <BsFilterLeft />
         </p>
         <p className=" text-base font-extrabold">Sort by</p>
+        <RxCross1 size={25} className="comCross ml-auto mr-1 none" onClick={hideComments}/>
       </div>
       <div className="comments__form d-flex w-100 my-2 mb-3">
         <img
@@ -97,6 +135,7 @@ const Comments = ({ videoId, totalComments }) => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

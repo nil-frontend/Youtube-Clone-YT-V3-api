@@ -68,6 +68,7 @@ const VideoHorizontal = ({video}) => {
 // }, [channelId])
  const handleVideoClick = ()=> {
   navigate(`/watch/${_videoId}`);
+  window.scrollTo(0, 0);
  };
 
   return (
