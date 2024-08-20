@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./_header.scss";
 import logo from "../../assets/yt-logo-white.png";
 // import logos from "../../assets/YouTube_full-color_icon_(2017).svg.png";
@@ -14,7 +14,8 @@ import { BiVideoPlus } from "react-icons/bi";
 import { FaRegBell } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/actions/auth.action";
+import { log_out, login } from "../../redux/actions/auth.action";
+import { IoLogOutSharp } from "react-icons/io5";
 // import LoginScreen from "../../screens/loginScreen/LoginScreen";
 
 const Header = ({ handleToggleSidebar }) => {
@@ -49,10 +50,32 @@ const Header = ({ handleToggleSidebar }) => {
     } 
   }
 
-  const {photoURL} = useSelector(state => state.auth?.user) || {}
+  const {name,photoURL} = useSelector(state => state.auth?.user) || {}
   const userPhoto = photoURL || "https://cdn-icons-png.flaticon.com/256/1144/1144760.png"
+
+  const header = useRef(null)
+  const acc = useRef(null);
+  const logOutHandler = () => {
+    dispatch(log_out())
+    if(acc.current){
+      acc.current.classList.add("none");
+    }
+  }
+  const accInfo = () => {
+    if(acc.current){
+      acc.current.classList.toggle("none");
+    }
+  }
+  useEffect(()=>{
+    document.body.addEventListener("click", (event) => {
+      if(header.current && !event.composedPath().includes(header.current)){
+        acc.current.classList.add("none");
+      }
+    })
+  })
+
   return (
-    <div class="header">
+    <div ref={header} class="header">
       <div className="header__menu">
       <FaBars  size={26}
       onClick={() => handleToggleSidebar()}
@@ -83,8 +106,22 @@ const Header = ({ handleToggleSidebar }) => {
         <img
           src={userPhoto}
           alt="aobotar"
+          onClick={accInfo}
         />
       </div>
+        <div id="acc" ref={acc} className=" bg-yt-light-black rounded-lg fixed flex flex-col right-0 top-20 p-2 -z-50">
+          <div className="flex flex-row py-2">
+            {/* <img
+             src={userPhoto}
+             alt="aobotar"
+             className="w-4"
+            /> */}
+            <p>{name}</p>
+          </div>
+          <div className="flex flex-row border-yt-gray border-t-2 py-2" onClick={logOutHandler}>
+            Log Out <IoLogOutSharp size={24}/>
+          </div>
+        </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import Header from "./components/header/Header";
 import HomeScreen from "./screens/homeScreen/HomeScreen";
 import LoginScreen from './screens/loginScreen/LoginScreen';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {/*BrowserRouter,*/Route,Routes, useNavigate} from "react-router-dom"
+import {/*BrowserRouter,*/Route,Routes, useNavigate,Navigate} from "react-router-dom"
 
 import "./_app.scss"
 // import Video from './components/video/Video';
@@ -77,6 +77,7 @@ const App = () => {
         <Route path='/feed/subscriptions' element={<SubscriptionsScreen/>} />
         <Route path='/feed/shorts' element={<ShortsScreen/>} />
         <Route path='/login' element={<LoginScreen />} />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     {/* </BrowserRouter> */}
     </>
