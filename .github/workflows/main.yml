@@ -1,4 +1,6 @@
-name: Firebase Deployment
+#My Customization
+name : Firebase Deployment
+
 
 on:
   push:
@@ -8,21 +10,19 @@ on:
 jobs:
   deploy:
     name: Build & Deployment
-    runs-on: ubuntu-latest
+    runs-on : ubuntu-latest
 
     steps:
-      - name: Get the source code
+      - name : get the source code
         uses: actions/checkout@v2
 
-      - name: Install Node.js (Updated)
+      - name : install node
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Updated from 12 to 18
+            node-version: '18'  # Updated from 12 to 18
 
-      - name: Clean install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+      - name : install node packages
+        run: npm i
 
       - name: Build
         run: npm run build
@@ -30,14 +30,57 @@ jobs:
           NODE_OPTIONS: "--max-old-space-size=4096"
           CI: false
       
-      - name: Deploy to Firebase
+      - name : Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
 
-#9/03/2025 00:02
+# #9/03/2025 00:15
+
+
+
+# name: Firebase Deployment
+
+# on:
+#   push:
+#     branches:
+#       - master
+
+# jobs:
+#   deploy:
+#     name: Build & Deployment
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Get the source code
+#         uses: actions/checkout@v2
+
+#       - name: Install Node.js (Updated)
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '18'  # Updated from 12 to 18
+
+#       - name: Clean install dependencies
+#         run: |
+#           rm -rf node_modules package-lock.json
+#           npm install
+
+#       - name: Build
+#         run: npm run build
+#         env:
+#           NODE_OPTIONS: "--max-old-space-size=4096"
+#           CI: false
+      
+#       - name: Deploy to Firebase
+#         uses: w9jds/firebase-action@master
+#         with:
+#           args: deploy --only hosting
+#         env:
+#           FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
+# #AI Help
+# #9/03/2025 00:02
 
 
 
@@ -82,6 +125,7 @@ jobs:
 #           args: deploy --only hosting
 #         env:
 #           FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
+#AI Help
 # #8/03/2025 23:45
 
 
