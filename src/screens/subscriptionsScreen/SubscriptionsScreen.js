@@ -6,8 +6,10 @@ import { getSubscribedChannels } from "../../redux/actions/videos.action";
 import SearchVideos from "../../components/searchVideos/SearchVideos";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import BottomNavBar from "../../components/bottomNavBar/BottomNavBar";
+import { useNavigate } from "react-router-dom";
 
 function SubscriptionsScreen() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,10 +19,22 @@ function SubscriptionsScreen() {
   const { loading, videos,error } = useSelector(
     (state) => state.subscriptionsChannel
   ) || {};
+
+  const goHome = ()=> {
+    navigate("/");
+  }
+
   return (
     <>
       <Sidebar activeElement={"Subscriptions"} />
       <BottomNavBar/>
+      {videos.length === 0 && !error ?(
+        <div id="subscriptions" className="flex items-center justify-center flex-col w-[calc(100%-240px)]  h-[calc(100%-53px)] pt-20  bg-yt-black ml-60 mb-14">
+        <p className="text-xl">You Have not yet Subscribe to any one!</p>
+        <button className='logbtn flex justify-center items-center rounded-full bg-yt-light-dark text-yt-white p-2 mt-2 cursor-pointer' onClick={goHome}>Explore</button>
+      </div>
+      ):(
+      <>
       {!error?(
       <div id="subscriptions" className="w-[calc(100%-240px)]  h-[calc(100%-53px)] pt-20  bg-yt-black ml-60 mb-14">
       {!loading ? (
@@ -67,7 +81,8 @@ function SubscriptionsScreen() {
         </div>
       )
       }
-      
+      </>
+      )}
     </>
   );
 }

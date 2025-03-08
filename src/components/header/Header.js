@@ -53,7 +53,8 @@ const Header = ({ handleToggleSidebar }) => {
   const {name,photoURL} = useSelector(state => state.auth?.user) || {}
   const userPhoto = photoURL || "https://cdn-icons-png.flaticon.com/256/1144/1144760.png"
 
-  const header = useRef(null)
+  const header__icons = useRef(null);
+  const header = useRef(null);
   const acc = useRef(null);
   const logOutHandler = () => {
     dispatch(log_out())
@@ -62,14 +63,17 @@ const Header = ({ handleToggleSidebar }) => {
     }
   }
   const accInfo = () => {
-    if(acc.current){
+    if(acc.current && accessToken){
+      // console.log("object")
       acc.current.classList.toggle("none");
     }
   }
   useEffect(()=>{
     document.body.addEventListener("click", (event) => {
-      if(header.current && !event.composedPath().includes(header.current)){
+      if(header.current && !event.composedPath().includes(header__icons.current) && acc.current && accessToken){
+        console.log("object")
         acc.current.classList.add("none");
+
       }
     })
   })
@@ -92,7 +96,7 @@ const Header = ({ handleToggleSidebar }) => {
       <div id="mic" className='header__mic text-yt-white bg-yt-light w-10 h-10 items-center flex justify-center rounded-full ml-4 hover:bg-yt-light-black cursor-pointer'>
             <MdMic className="text-center" size={26} />
       </div>
-      <div className="header__icons">
+      <div ref={header__icons} className="header__icons">
         <div className="header__icons__iov mr-2  w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
           <BiVideoPlus size={30} />
         </div>
@@ -109,7 +113,8 @@ const Header = ({ handleToggleSidebar }) => {
           onClick={accInfo}
         />
       </div>
-        <div id="acc" ref={acc} className=" bg-yt-light-black rounded-lg fixed flex flex-col right-0 top-20 p-2 -z-50">
+      {accessToken &&(
+        <div id="acc" ref={acc} className=" bg-yt-light-black rounded-lg fixed flex flex-col right-0 top-20 p-2 -z-50 none">
           <div className="flex flex-row py-2">
             {/* <img
              src={userPhoto}
@@ -118,10 +123,10 @@ const Header = ({ handleToggleSidebar }) => {
             /> */}
             <p>{name}</p>
           </div>
-          <div className="flex flex-row border-yt-gray border-t-2 py-2" onClick={logOutHandler}>
+          <div className="flex flex-row border-yt-gray border-t-2 py-2 cursor-pointer" onClick={logOutHandler}>
             Log Out <IoLogOutSharp size={24}/>
           </div>
-        </div>
+        </div>)}
     </div>
   );
 };
