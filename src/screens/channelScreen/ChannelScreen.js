@@ -117,7 +117,7 @@ const ChannelScreen = () => {
               </div>
               <div className="flex items-center">
                 <p className="line-clamp-1 w-2/4 -mr-9">
-                  {description}
+                  {description? description : "More about this channel"}
                 </p>
                 <p className="font-bold text-yt-white cursor-pointer" onClick={toggleAbout}>...more</p>
               </div>
